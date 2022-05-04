@@ -47,7 +47,7 @@ public class ItemDAO implements Dao<Item> {
 	@Override
 	public Item read(Long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("SELECT * FROM ts WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE id = ?");) {
 			statement.setLong(1, id);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
@@ -63,7 +63,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item readLatest() {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT * FROM ts ORDER BY id DESC LIMIT 1");) {
+				ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY id DESC LIMIT 1");) {
 			resultSet.next();
 			return modelFromResultSet(resultSet);
 		} catch (Exception e) {
@@ -77,7 +77,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item create(Item t) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO ts(Item_name, surname) VALUES (?, ?)");) {
+						.prepareStatement("INSERT INTO items(Item_name, value) VALUES (?, ?)");) {
 			statement.setString(1, t.getItemName());
 			statement.setDouble(2, t.getValue());
 			statement.executeUpdate();
@@ -93,7 +93,7 @@ public class ItemDAO implements Dao<Item> {
 	public Item update(Item t) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE ts SET Item_name = ?, surname = ? WHERE id = ?");) {
+						.prepareStatement("UPDATE items SET Item_name = ?, surname = ? WHERE id = ?");) {
 			statement.setString(1, t.getItemName());
 			statement.setDouble(2, t.getValue());
 			statement.setLong(3, t.getId());
