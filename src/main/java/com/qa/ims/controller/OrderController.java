@@ -33,33 +33,35 @@ public class OrderController implements CrudController<Order> {
 
 	@Override
 	public Order create() {
-		LOGGER.info("Please enter customer");
+		LOGGER.info("please enter order number: choose existing number to add an item to an order or specify new order number for new order");
+		Long order_id = utils.getLong();
+		LOGGER.info("Please enter customer name");
 		String customer = utils.getString();
 		LOGGER.info("Please enter an item");
 		String item = utils.getString();
-		Order order = orderDAO.create(new Order(customer, item));
+		Order order = orderDAO.create(new Order(order_id, customer, item));
 		LOGGER.info("order created");
 		return order;
 	}
 
 	@Override
 	public Order update() {
-		LOGGER.info("Please enter the id of the order you would like to update");
-		Long id = utils.getLong();
-		LOGGER.info("Please enter customer");
-		String customer = utils.getString();
-		LOGGER.info("Please enter item");
+		LOGGER.info("Please enter the order number you wish to remove an item from");
+		Long order_id = utils.getLong();
+		LOGGER.info("Please enter item you wish to remove");
 		String item = utils.getString();
-		Order order = orderDAO.update(new Order(id, customer, item));
+		Order order = orderDAO.update(new Order(order_id, item));
 		LOGGER.info("Order Updated");
 		return order;
+		
+		
 	}
-
+	
 	@Override
 	public int delete() {
-		LOGGER.info("Please enter the id of the item you would like to delete");
-		Long id = utils.getLong();
-		return orderDAO.delete(id);
+		LOGGER.info("Please enter the order number for the order you wish to remove");
+		Long order_id = utils.getLong();
+		return orderDAO.delete(order_id);
 	}
 	
 }

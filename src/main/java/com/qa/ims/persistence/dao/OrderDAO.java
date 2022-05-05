@@ -21,9 +21,10 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
+		Long order_id =resultSet.getLong("order_id");
 		String customer = resultSet.getString("customer");
 		String item = resultSet.getString("item");
-		return new Order(id, customer, item);
+		return new Order(id, order_id, customer, item);
 	}
 
 	@Override
@@ -76,9 +77,10 @@ public class OrderDAO implements Dao<Order> {
 	public Order create(Order t) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders(customer, item (?, ?)");) {
-			statement.setString(1, t.getCustomer());
-			statement.setString(2, t.getItem());
+						.prepareStatement("INSERT INTO orders(order_id, customer, item) VALUES (?, ?, ?)");) {
+			statement.setLong(1, t.getOrder_id());
+			statement.setString(2, t.getCustomer());
+			statement.setString(3, t.getItem());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -92,12 +94,11 @@ public class OrderDAO implements Dao<Order> {
 	public Order update(Order t) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE items SET customer = ?, item = ? WHERE id = ?");) {
-			statement.setString(1, t.getCustomer());
+						.prepareStatement("DELETE FROM orders WHERE order_id = ? and item = ?");) {
+			statement.setLong(1, t.getOrder_id());
 			statement.setString(2, t.getItem());
-			statement.setLong(3, t.getId());
 			statement.executeUpdate();
-			return read(t.getId());
+			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
@@ -108,7 +109,7 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public int delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE order_id = ?");) {
 			statement.setLong(1, id);
 			return statement.executeUpdate();
 		} catch (Exception e) {
