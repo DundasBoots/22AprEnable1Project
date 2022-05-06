@@ -20,5 +20,4 @@ CREATE TABLE IF NOT EXISTS `orders` (
     `value` INT(4) DEFAULT NULL,
     `item_name` VARCHAR(40) DEFAULT NULL,
      PRIMARY KEY (`id`)
- );
-    
+ );    
