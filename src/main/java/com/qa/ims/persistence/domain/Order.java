@@ -5,19 +5,17 @@ public class Order {
 	private Long order_id;
 	private String customer;
 	private String item;
-	
-	
-
-	public Order(Long order_id, String item) {
-		super();
-		this.order_id = order_id;
-		this.item = item;
-	}
 
 	public Order(Long order_id, String customer, String item) {
 		super();
 		this.order_id = order_id;
 		this.customer = customer;
+		this.item = item;
+	}
+
+	public Order(Long order_id, String item) {
+		super();
+		this.order_id = order_id;
 		this.item = item;
 	}
 
@@ -105,7 +103,7 @@ public class Order {
 			if (other.order_id != null)
 				return false;
 		} else if (!order_id.equals(other.order_id))
-				return false;
+			return false;
 		return true;
 	}
 }
