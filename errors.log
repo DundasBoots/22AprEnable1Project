@@ -1,0 +1,23 @@
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java36 - customer_id:1 first name:jordan surname:harrison
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java46 - Please enter a first name
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java48 - Please enter a surname
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java51 - Customer created
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java78 - Please enter the id of the customer you would like to delete
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java60 - Please enter the id of the customer you would like to update
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java62 - Please enter a first name
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java64 - Please enter a surname
+20220506 16:05:41 INFO  [main] controller.CustomerController CustomerController.java67 - Customer Updated
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java29 - id:1 item name:bookvalue:10.0
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java36 - Please enter an item name
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java38 - Please enter an item value
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java41 - Item created
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java60 - Please enter the id of the item you would like to delete
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java47 - Please enter the id of the Item you would like to update
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java49 - Please enter an item name
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java51 - Please enter an item value
+20220506 16:05:41 INFO  [main] controller.ItemController ItemController.java54 - Item Updated
+20220506 16:05:41 INFO  [main] controller.OrderController OrderController.java29 - id:1 order number:1 customer:Jack item:Car
+20220506 16:05:41 INFO  [main] controller.OrderController OrderController.java62 - Please enter the order number for the order you wish to remove
+20220506 16:05:41 INFO  [main] controller.OrderController OrderController.java49 - Please enter the order number you wish to remove an item from
+20220506 16:05:41 INFO  [main] controller.OrderController OrderController.java51 - Please enter item you wish to remove
+20220506 16:05:41 INFO  [main] controller.OrderController OrderController.java54 - Order Updated

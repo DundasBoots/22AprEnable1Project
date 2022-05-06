@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.qa</groupId>
 	<artifactId>ims</artifactId>
@@ -15,7 +13,7 @@
 		<dependency>
 			<groupId>nl.jqno.equalsverifier</groupId>
 			<artifactId>equalsverifier</artifactId>
-			<version>3.4.1</version>
+			<version>3.6.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -76,6 +74,7 @@
 
 			<!-- Creates a "fat jar" with jar-with-dependencies at the end of the 
 				project jar -->
+				
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -108,12 +107,13 @@
 				</executions>
 			</plugin>
 
+
 			<!-- Plugin for code coverage. Useful as sonarqube integrates well with 
 				jacoco -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.5</version>
+				<version>0.8.6</version>
 				<executions>
 					<execution>
 						<goals>
@@ -139,7 +139,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 
 </project>
