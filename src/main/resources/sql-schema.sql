@@ -23,3 +23,4 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
     `item` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)
 );    
+

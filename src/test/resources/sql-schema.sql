@@ -14,5 +14,10 @@ CREATE TABLE IF NOT EXISTS `orders` (
     `item` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)	
 ); 
-
-    
+ DROP TABLE IF EXISTS `items`;
+ CREATE TABLE IF NOT EXISTS `items` (
+     `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `value` INT(4) DEFAULT NULL,
+    `item_name` VARCHAR(40) DEFAULT NULL,
+     PRIMARY KEY (`id`)
+ );    
